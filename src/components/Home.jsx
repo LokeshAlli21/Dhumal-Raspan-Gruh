@@ -1,56 +1,71 @@
-import React, { useState } from 'react';
-import { Phone, Mail, Instagram, Clock, MapPin, CheckCircle, Globe } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, Mail, Instagram, Clock, MapPin, CheckCircle, Globe, Zap, Shield, Sparkles, Heart, Droplets, Leaf } from 'lucide-react';
 
 const Home = () => {
   const [language, setLanguage] = useState('en');
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const content = {
     en: {
       welcome: "Welcome to",
       brandName: "Dhumal Raspan Gruh",
       tagline: "Solapur's Original Sugarcane Juice Destination – Since 1942",
-      heroDescription: "With roots deeply grounded in tradition and a legacy of over 80 years, we serve 100% fresh, hygienic, and unadulterated sugarcane juice — just like nature intended.",
+      heroDescription: "80+ years of trust, taste, and tradition — now reborn as a modern legacy brand.",
       aboutTitle: "About Dhumal Raspan Gruh",
-      aboutP1: "Located in the heart of Solapur's iconic Gadda Yatra zone, we serve 100% fresh, hygienic, and unadulterated sugarcane juice — just like nature intended.",
+      aboutP1: "With roots deeply grounded in tradition and a legacy of over 80 years, Dhumal Raspan Gruh has been a name synonymous with purity, freshness, and the unforgettable taste of naturally sweet sugarcane juice. Located in the heart of Solapur's iconic Gadda Yatra zone, we serve 100% fresh, hygienic, and unadulterated sugarcane juice — just like nature intended.",
       aboutP2: "Our mission is simple: to quench your thirst with health, heritage, and honesty. Whether you're a local or just visiting, one glass of our juice will make you a lifelong fan.",
-      quote: "Because here, every drop tells a story.",
+      quote: "Because at Dhumal Raspan Gruh, every drop embodies the taste of tradition, the strength of service, and the pride of a family legacy.",
       legacyTitle: "Our Legacy",
-      legacySubtitle: "A Legacy of Taste, Since 1942",
+      legacySubtitle: "A Legacy That Began in 1942 — Reborn as a Brand in 2025",
+      legacyIntro: "The story of Dhumal Raspan Gruh is more than just about serving sugarcane juice — it's a tale of service, sacrifice, and a family tradition carried forward across four proud generations.",
       timeline: {
-        1942: "Jai Jawan Raspan Gruh was established during the post-independence era by our great-grandfather, offering clean, energizing refreshment to the people of Solapur.",
-        1982: "Our visionary grandmother gave the business a fresh identity, renaming it Dhumal Raspan Gruh, adding family warmth that turned customers into community.",
-        1994: "Our father Mr. Suhil Balkrishna Dhumal took the reins, bringing better hygiene, customer service, and consistency that made us a landmark in Solapur's Gadda Yatra circle.",
-        2025: "I — Amol Sunil Dhumal, the next-gen torchbearer — proudly take this family tradition forward. With modern design and respect for our roots, serving Solapur with the same love and authenticity."
+        1942: "Our great-grandmother established a humble juice stall called Jai Hind Raspan Gruh to provide fresh, natural sugarcane juice to the people of Solapur. It quickly became an integral part of the city's culture, especially during the iconic Gadda Yatra.",
+        1982: "The torch was passed to our grandfather, who returned home after honourably serving in the Indian Army as a Naib Subedar. With pride and purpose, he continued the legacy and renamed it Dhumal Raspan Gruh, giving it a renewed identity grounded in discipline, trust, and family values.",
+        1992: "Our father, Mr. Sunil Balkrishna Dhumal, took over the business and infused it with modern practices while maintaining its authenticity. He focused on hygiene, quality, and a customer-first approach, thereby strengthening the reputation across generations of loyal customers.",
+        2025: "I — Amol Sunil Dhumal — step forward as the fourth generation to carry this treasured legacy. On 14th July 2025, we marked a new milestone by officially rebranding Dhumal Raspan Gruh as a contemporary heritage brand, while remaining committed to the values that have shaped us since 1942."
       },
-      benefitsTitle: "🍹 Why Sugarcane Juice is Nature's Elixir",
+      legacyFooter: "We are proud to be Solapur's only fourth-generation family-run sugarcane juice centre, and even prouder to serve a drink that's not only refreshing, but historic.",
+      benefitsTitle: "Why Sugarcane Juice is Nature's Elixir",
       benefits: [
         {
           title: "Instant Energy Booster",
-          description: "Rich in natural sugars and carbs, provides quick energy without caffeine or artificial additives."
+          description: "Rich in natural sugars and carbs, sugarcane juice provides quick energy without caffeine or artificial additives.",
+          icon: Zap
         },
         {
           title: "Strengthens Immunity",
-          description: "Loaded with antioxidants, helps fight infections and builds natural resistance."
+          description: "Loaded with antioxidants, it helps fight infections and builds natural resistance.",
+          icon: Shield
         },
         {
           title: "Great for Skin",
-          description: "Contains alpha hydroxy acids (AHAs) that keep your skin youthful and acne-free."
+          description: "Contains alpha hydroxy acids (AHAs) that keep your skin youthful and acne-free.",
+          icon: Sparkles
         },
         {
           title: "Aids Digestion",
-          description: "Natural enzymes in the juice soothe the stomach and aid in digestion."
+          description: "Natural enzymes in the juice soothe the stomach and aid in digestion.",
+          icon: Heart
         },
         {
           title: "Kidney Cleanser",
-          description: "Known to be a natural diuretic, supports healthy kidney function."
+          description: "Known to be a natural diuretic, sugarcane juice supports healthy kidney function.",
+          icon: Droplets
         },
         {
-          title: "No Preservatives",
-          description: "We serve it straight from the press, fresh and untouched by chemicals."
+          title: "No Preservatives, No Chemicals",
+          description: "At Dhumal Raspan Gruh, we serve it straight from the press, fresh and untouched.",
+          icon: Leaf
         }
       ],
       benefitsFooter: "Come for the taste. Stay for the benefits.",
-      contactTitle: "📍 Contact Us",
+      contactTitle: "Get In Touch",
       contactLabels: {
         address: "Address",
         phone: "Phone",
@@ -70,48 +85,56 @@ const Home = () => {
       welcome: "स्वागत आहे",
       brandName: "धुमाळ रसपान गृह",
       tagline: "सोलापूरचे मूळ ऊसरसाचे गंतव्य - १९४२ पासून",
-      heroDescription: "८० वर्षांहून अधिक परंपरेत रुजलेल्या मुळांसह, आम्ही १००% ताजे, स्वच्छ आणि अमिश्रित ऊसरस सर्व्ह करतो - जसे निसर्गाने हवे तसे.",
+      heroDescription: "८०+ वर्षांचा विश्वास, चव आणि परंपरा — आता आधुनिक वारसा ब्रँड म्हणून पुनर्जन्म.",
       aboutTitle: "धुमाळ रसपान गृह बद्दल",
-      aboutP1: "सोलापूरच्या प्रसिद्ध गड्डा यात्रा झोनच्या मध्यभागी स्थित, आम्ही १००% ताजे, स्वच्छ आणि अमिश्रित ऊसरस सर्व्ह करतो - जसे निसर्गाने हवे तसे.",
+      aboutP1: "८० वर्षांहून अधिक परंपरेत रुजलेल्या मुळांसह, धुमाळ रसपान गृह हे शुद्धता, ताजेपणा आणि नैसर्गिक गोड ऊसरसाच्या अविस्मरणीय चवीचे नाव आहे. सोलापूरच्या प्रसिद्ध गड्डा यात्रा झोनच्या मध्यभागी स्थित, आम्ही १००% ताजे, स्वच्छ आणि अमिश्रित ऊसरस सर्व्ह करतो — जसे निसर्गाने हवे तसे.",
       aboutP2: "आमचे ध्येय सोपे आहे: आरोग्य, वारसा आणि प्रामाणिकपणाने तुमची तहान भागवणे. तुम्ही स्थानिक असाल की फक्त भेट देत असाल, आमचा एक ग्लास रस तुम्हाला आजीवन चाहता बनवेल.",
-      quote: "कारण येथे, प्रत्येक थेंब एक कथा सांगतो.",
+      quote: "कारण धुमाळ रसपान गृहात, प्रत्येक थेंब परंपरेची चव, सेवेची शक्ती आणि कौटुंबिक वारशाचा अभिमान दर्शवतो.",
       legacyTitle: "आमचा वारसा",
-      legacySubtitle: "चवीचा वारसा, १९४२ पासून",
+      legacySubtitle: "१९४२ मध्ये सुरू झालेला वारसा — २०२५ मध्ये ब्रँड म्हणून पुनर्जन्म",
+      legacyIntro: "धुमाळ रसपान गृहाची कथा केवळ ऊसरस सर्व्ह करण्याबद्दल नाही — ही सेवा, त्याग आणि चार अभिमानास्पद पिढ्यांमध्ये वाहून नेलेल्या कौटुंबिक परंपरेची गाथा आहे.",
       timeline: {
-        1942: "स्वातंत्र्यानंतरच्या काळात आमच्या पणजोबांनी जय जवान रसपान गृहाची स्थापना केली, सोलापूरच्या लोकांना स्वच्छ, ऊर्जादायी पेय देण्यासाठी.",
-        1982: "आमच्या दूरदर्शी आजींनी व्यवसायाला एक नवीन ओळख दिली, त्याचे नाव धुमाळ रसपान गृह ठेवले आणि कौटुंबिक प्रेम जोडले ज्याने ग्राहकांना समुदाय बनवले.",
-        1994: "आमचे वडील श्री सुनील बाळकृष्ण धुमाळ यांनी कारभार हाती घेतला, चांगली स्वच्छता, ग्राहकसेवा आणि सातत्य आणले ज्यामुळे आम्ही सोलापूरच्या गड्डा यात्रा वर्तुळात एक ठिकाण बनलो.",
-        2025: "मी - अमोल सुनील धुमाळ, पुढच्या पिढीचा वारसदार - या कौटुंबिक परंपरेला गर्वाने पुढे नेत आहे. आधुनिक डिझाइन आणि मुळांचा आदर करून, सोलापूरची सेवा त्याच प्रेमाने आणि सत्यतेने करत आहे."
+        1942: "आमच्या पणजींनी सोलापूरच्या लोकांना ताजे, नैसर्गिक ऊसरस देण्यासाठी जय हिंद रसपान गृह नावाचे नम्र रसाचे स्टॉल स्थापन केले. विशेषतः प्रसिद्ध गड्डा यात्रेदरम्यान हे शहराच्या संस्कृतीचा अविभाज्य भाग बनले.",
+        1982: "आमच्या आजोबांना मशाल सोपवण्यात आली, जे नाईब सुबेदार म्हणून भारतीय लष्करात सन्मानपूर्वक सेवा केल्यानंतर घरी परतले. अभिमान आणि हेतूने, त्यांनी वारसा चालू ठेवला आणि त्याचे नाव धुमाळ रसपान गृह ठेवले, त्याला शिस्त, विश्वास आणि कौटुंबिक मूल्यांवर आधारित नवीन ओळख दिली.",
+        1992: "आमचे वडील श्री सुनील बाळकृष्ण धुमाळ यांनी व्यवसाय हाती घेतला आणि सत्यता कायम ठेवत आधुनिक पद्धती जोडल्या. त्यांनी स्वच्छता, गुणवत्ता आणि ग्राहक-प्रथम दृष्टिकोनावर लक्ष केंद्रित केले, ज्यामुळे निष्ठावान ग्राहकांच्या पिढ्यांमध्ये प्रतिष्ठा मजबूत झाली.",
+        2025: "मी — अमोल सुनील धुमाळ — या बहुमोल वारशाला पुढे नेण्यासाठी चौथी पिढी म्हणून पुढे येत आहे. १४ जुलै २०२५ रोजी, आम्ही धुमाळ रसपान गृहाला समकालीन वारसा ब्रँड म्हणून अधिकृतपणे रिब्रँड करून नवीन मैलाचा दगड गाठला, १९४२ पासून आम्हाला आकार देणाऱ्या मूल्यांप्रती वचनबद्ध राहिलो."
       },
-      benefitsTitle: "🍹 ऊसरस निसर्गाचे अमृत का आहे",
+      legacyFooter: "आम्हाला सोलापूरचे एकमेव चौथ्या पिढीतील कौटुंबिक ऊसरस केंद्र असण्याचा अभिमान आहे आणि केवळ ताजेतवाने नाही तर ऐतिहासिक पेय सर्व्ह करण्याचा त्याहूनही जास्त अभिमान आहे.",
+      benefitsTitle: "ऊसरस निसर्गाचे अमृत का आहे",
       benefits: [
         {
           title: "तत्काळ ऊर्जा वाढवणारे",
-          description: "नैसर्गिक साखर आणि कार्बोहायड्रेट्सने भरपूर, कॅफीन किंवा कृत्रिम पदार्थांशिवाय तत्काळ ऊर्जा देते."
+          description: "नैसर्गिक साखर आणि कार्बोहायड्रेट्सने भरपूर, ऊसरस कॅफीन किंवा कृत्रिम पदार्थांशिवाय तत्काळ ऊर्जा देते.",
+          icon: Zap
         },
         {
           title: "रोगप्रतिकारक शक्ती वाढवते",
-          description: "अँटिऑक्सिडंट्सने भरलेले, संक्रमणाशी लढण्यास मदत करते आणि नैसर्गिक प्रतिकार निर्माण करते."
+          description: "अँटिऑक्सिडंट्सने भरलेले, ते संक्रमणाशी लढण्यास मदत करते आणि नैसर्गिक प्रतिकार निर्माण करते.",
+          icon: Shield
         },
         {
           title: "त्वचेसाठी उत्तम",
-          description: "अल्फा हायड्रॉक्सी अॅसिड (AHA) असतात जे तुमची त्वचा तरुण आणि मुरुमांमुक्त ठेवतात."
+          description: "अल्फा हायड्रॉक्सी अॅसिड (AHA) असतात जे तुमची त्वचा तरुण आणि मुरुमांमुक्त ठेवतात.",
+          icon: Sparkles
         },
         {
           title: "पचनास मदत करते",
-          description: "रसातील नैसर्गिक एंजाइम्स पोट शांत करतात आणि पचनास मदत करतात."
+          description: "रसातील नैसर्गिक एंजाइम्स पोट शांत करतात आणि पचनास मदत करतात.",
+          icon: Heart
         },
         {
           title: "किडनी साफ करणारे",
-          description: "नैसर्गिक मूत्रवर्धक म्हणून ओळखले जाते, निरोगी किडनी कार्यास समर्थन देते."
+          description: "नैसर्गिक मूत्रवर्धक म्हणून ओळखले जाते, ऊसरस निरोगी किडनी कार्यास समर्थन देते.",
+          icon: Droplets
         },
         {
-          title: "कोणतेही परिरक्षक नाही",
-          description: "आम्ही ते थेट प्रेसमधून सर्व्ह करतो, ताजे आणि रसायनांनी अस्पर्शित."
+          title: "कोणतेही परिरक्षक, कोणतेही रसायन नाही",
+          description: "धुमाळ रसपान गृहात, आम्ही ते थेट प्रेसमधून सर्व्ह करतो, ताजे आणि अस्पर्शित.",
+          icon: Leaf
         }
       ],
       benefitsFooter: "चवीसाठी या. फायद्यांसाठी राहा.",
-      contactTitle: "📍 संपर्क करा",
+      contactTitle: "संपर्क करा",
       contactLabels: {
         address: "पत्ता",
         phone: "फोन",
@@ -132,212 +155,371 @@ const Home = () => {
   const currentContent = content[language];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-green-50">
+<div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 overflow-x-hidden">
       {/* Language Toggle */}
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-6 right-6 z-50">
         <button
           onClick={() => setLanguage(language === 'en' ? 'mr' : 'en')}
-          className="bg-white hover:bg-gray-50 shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 border-2 border-orange-200"
+          className="group bg-white/90 backdrop-blur-md hover:bg-white shadow-xl rounded-full p-4 transition-all duration-300 hover:scale-110 border border-green-200 hover:border-green-300"
         >
-          <Globe className="text-orange-600" size={24} />
+          <Globe className="text-green-600 group-hover:text-green-700 transition-colors" size={24} />
         </button>
       </div>
 
       {/* Hero Section */}
-      <section 
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    <section 
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(251, 146, 60, 0.8), rgba(34, 197, 94, 0.8)), url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `linear-gradient(rgba(5, 93, 57, 0.7), rgba(16, 185, 129, 0.4)), url('https://cdn.pixabay.com/photo/2020/07/09/20/05/sugarcane-5388628_1280.jpg')`,
+            transform: `translateY(${scrollY * 0.3}px)`
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-green-500/20"></div>
-        <div className="relative text-center text-white px-4 max-w-6xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            {currentContent.welcome} <span className="text-yellow-300 drop-shadow-lg">{currentContent.brandName}</span>
-          </h1>
-          <h2 className="text-lg sm:text-xl md:text-2xl mb-8 text-orange-100">
-            {currentContent.tagline}
-          </h2>
-          <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/30 shadow-2xl">
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-              {currentContent.heroDescription}
-            </p>
-          </div>
+        >
+        {/* Enhanced Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/10 via-green-400/15 to-teal-400/10">
+            <div className="absolute inset-0 bg-green-600/5" 
+                style={{
+                backgroundImage: `
+                    linear-gradient(rgba(52, 211, 153, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(52, 211, 153, 0.1) 1px, transparent 1px)
+                `,
+                backgroundSize: '50px 50px',
+                transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.1}px)`
+                }}></div>
         </div>
-      </section>
+
+        {/* Enhanced Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-emerald-300/30 to-green-300/20 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute top-32 sm:top-40 right-16 sm:right-32 w-32 sm:w-48 h-32 sm:h-48 bg-gradient-to-br from-green-300/25 to-teal-300/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-20 sm:bottom-32 left-16 sm:left-32 w-28 sm:w-40 h-28 sm:h-40 bg-gradient-to-br from-teal-300/25 to-emerald-300/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-br from-emerald-400/20 to-teal-400/15 rounded-full blur-xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute bottom-1/3 left-1/4 w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-400/15 rounded-full blur-xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        </div>
+
+        {/* Particle Effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {[...Array(15)].map((_, i) => (
+            <div
+                key={i}
+                className="absolute w-1 h-1 bg-emerald-200 rounded-full animate-pulse opacity-40"
+                style={{
+                top: `${10 + (i * 5)}%`,
+                left: `${5 + (i * 6)}%`,
+                animationDelay: `${i * 0.3}s`,
+                animationDuration: `${2 + (i * 0.2)}s`
+                }}
+            />
+            ))}
+        </div>
+
+        {/* Enhanced Hero Content */}
+        <div 
+            className="relative z-10 text-center px-4 sm:px-6 max-w-7xl mx-auto"
+            style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+        >
+            <div className="mb-6 sm:mb-8">
+            {/* Welcome Badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 sm:mb-6">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></div>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-emerald-100 font-medium">
+                {currentContent.welcome}
+                </p>
+            </div>
+
+            {/* Enhanced Brand Name */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-emerald-200 via-green-100 to-teal-200 bg-clip-text text-transparent leading-tight mb-4 sm:mb-6">
+                {currentContent.brandName}
+            </h1>
+
+            {/* Enhanced Divider */}
+            <div className="flex justify-center mb-4 sm:mb-6">
+                <div className="h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent w-24 sm:w-32 md:w-48 rounded-full animate-pulse"></div>
+            </div>
+            </div>
+            
+            {/* Enhanced Tagline */}
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-emerald-50 mb-8 sm:mb-12 font-light max-w-5xl mx-auto leading-relaxed">
+            {currentContent.tagline}
+            </h2>
+            
+            {/* Enhanced Quote Card */}
+            <div className="group relative max-w-4xl mx-auto">
+            {/* Enhanced Glow Effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 rounded-3xl blur-xl opacity-30 group-hover:opacity-70 transition-all duration-700"></div>
+            
+            {/* Enhanced Main Card */}
+            <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 md:p-12 border border-white/30 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+                {/* Decorative Quote Mark */}
+                <div className="text-5xl sm:text-6xl text-emerald-400 font-bold mb-4 opacity-20 leading-none">"</div>
+                
+                {/* Enhanced Description */}
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium mb-6 relative">
+                {currentContent.heroDescription}
+                </p>
+
+                {/* Call-to-Action Buttons */}
+                {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                <button className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
+                    <span className="relative z-10">Get Started</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+                
+                <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-emerald-400 text-emerald-700 font-semibold rounded-2xl hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
+                    Learn More
+                </button>
+                </div> */}
+            </div>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
+            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+            </div>
+            </div>
+        </div>
+
+        {/* Bottom Gradient */}
+        <div className="absolute bottom-0 left-0 w-full h-24 sm:h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
+    </section>
 
       {/* About Section */}
-      <section className="py-12 sm:py-16 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent mb-4">
-            {currentContent.aboutTitle}
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"></div>
-        </div>
-        
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
-              {currentContent.aboutP1}
-            </p>
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
-              {currentContent.aboutP2}
-            </p>
-            <div className="bg-gradient-to-r from-orange-50 to-green-50 p-6 rounded-2xl border-l-4 border-gradient-to-b border-orange-500">
-              <p className="text-gray-800 font-medium text-base sm:text-lg italic">
-                "{currentContent.quote}"
-              </p>
-            </div>
+      <section className="py-20 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-green-900 mb-6" style={{ color: '#055d39' }}>
+              {currentContent.aboutTitle}
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
           </div>
-          <div className="order-1 lg:order-2">
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {currentContent.aboutP1}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {currentContent.aboutP2}
+              </p>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-green-500/10 via-emerald-500/10 to-teal-500/10 rounded-2xl blur-xl"></div>
+                <div className="relative bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 p-8 rounded-2xl border-l-4 border-green-600" style={{ borderColor: '#055d39' }}>
+                  <p className="text-gray-800 font-medium text-lg italic">
+                    "{currentContent.quote}"
+                  </p>
+                </div>
+              </div>
+            </div>
+            
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-green-400 rounded-2xl transform rotate-3"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1615555130921-d6c0c4c22d79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                alt="Fresh sugarcane juice" 
-                className="relative w-full h-64 sm:h-80 object-cover rounded-2xl shadow-2xl"
-              />
+              <div className="absolute -inset-4 bg-gradient-to-br from-green-400 via-emerald-400 to-teal-400 rounded-3xl blur-xl opacity-30"></div>
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-br from-green-500 via-emerald-500 to-teal-500 rounded-2xl transform rotate-2 group-hover:rotate-3 transition-transform duration-500" style={{ background: `linear-gradient(135deg, #055d39, #047857, #0f766e)` }}></div>
+                <img 
+                  src="https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-64159980/64159980.jpg" 
+                  alt="Fresh sugarcane juice" 
+                  className="relative w-full h-96 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Legacy Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-orange-100 via-yellow-100 to-green-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent mb-4">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23055d39' fill-opacity='0.1'><circle cx='30' cy='30' r='1'/></g></g></svg>")`
+          }}
+        ></div>
+        
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">
               {currentContent.legacyTitle}
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600">{currentContent.legacySubtitle}</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto mt-4 rounded-full"></div>
+            <p className="text-xl md:text-2xl text-gray-300 mb-6">{currentContent.legacySubtitle}</p>
+            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto mb-8 rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
+            <p className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
+              {currentContent.legacyIntro}
+            </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-orange-500 to-green-500 rounded-full"></div>
+          {/* Timeline */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
             
-            <div className="space-y-8 sm:space-y-12">
+            <div className="space-y-16">
               {Object.entries(currentContent.timeline).map(([year, description], index) => (
                 <div key={year} className="flex items-center">
-                  <div className={`w-full sm:w-1/2 ${index % 2 === 0 ? 'pr-4 sm:pr-8 text-left sm:text-right' : 'pl-4 sm:pl-8 order-3'}`}>
-                    <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-gradient-to-b border-orange-500">
-                      <h3 className="text-lg sm:text-xl font-bold text-orange-600 mb-2">{year}</h3>
-                      <p className="text-gray-700 text-sm sm:text-base">{description}</p>
+                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-3'}`}>
+                    <div className="group">
+                      <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                      <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl">
+                        <h3 className="text-2xl font-bold text-green-400 mb-4" style={{ color: '#34d399' }}>{year}</h3>
+                        <p className="text-gray-300 leading-relaxed">{description}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-orange-500 to-green-500 rounded-full border-4 border-white shadow-lg z-10 flex-shrink-0"></div>
-                  <div className={`w-full sm:w-1/2 ${index % 2 === 0 ? 'pl-4 sm:pl-8 order-3' : 'pr-4 sm:pr-8 text-left sm:text-right'}`}></div>
+                  
+                  <div className="relative w-12 h-12 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-full border-4 border-slate-800 shadow-2xl z-10 flex-shrink-0 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                    <div className="w-4 h-4 bg-white rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pl-8 order-3' : 'pr-8 text-right'}`}></div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <div className="relative inline-block">
+              <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20">
+                <p className="text-lg text-gray-300 italic font-medium">
+                  {currentContent.legacyFooter}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-12 sm:py-16 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent mb-4">
-            {currentContent.benefitsTitle}
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"></div>
-        </div>
+      <section className="py-20 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-green-900 mb-6" style={{ color: '#055d39' }}>
+              {currentContent.benefitsTitle}
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
+          </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {currentContent.benefits.map((benefit, index) => (
-            <div key={index} className="group">
-              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-gradient-to-b border-orange-500 hover:transform hover:scale-105">
-                <div className="flex items-start">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-2 rounded-full mr-4 flex-shrink-0">
-                    <CheckCircle className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm sm:text-base">{benefit.description}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentContent.benefits.map((benefit, index) => {
+              const IconComponent = benefit.icon;
+              return (
+                <div key={index} className="group relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative bg-white/80 backdrop-blur-lg p-8 rounded-2xl border border-white/50 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl hover:scale-105">
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3 rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                        <IconComponent className="text-white" size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-3 group-hover:text-green-700 transition-colors">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-16">
+            <div className="relative inline-block">
+              <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl"></div>
+              <div className="relative bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 p-8 rounded-2xl border border-green-200">
+                <p className="text-xl font-bold text-green-800" style={{ color: '#055d39' }}>
+                  {currentContent.benefitsFooter}
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-8 sm:mt-12">
-          <p className="text-lg sm:text-xl text-gray-700 font-medium bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent">
-            {currentContent.benefitsFooter}
-          </p>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-orange-100 via-yellow-100 to-green-100">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent mb-4">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23055d39%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">
               {currentContent.contactTitle}
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-green-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 border border-orange-200">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-orange-600 to-green-600 bg-clip-text text-transparent mb-2">
-                {currentContent.brandName}
-              </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Address */}
+            <div className="group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
+                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <MapPin className="text-white" size={28} />
+                </div>
+                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.address}</h3>
+                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.address}</p>
+              </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-              <div className="space-y-6">
-                <div className="flex items-center group">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform">
-                    <MapPin className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm sm:text-base">{currentContent.contactLabels.address}</p>
-                    <p className="text-gray-600 text-sm sm:text-base">{currentContent.contactDetails.address}</p>
-                  </div>
+            {/* Phone */}
+            <div className="group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
+                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <Phone className="text-white" size={28} />
                 </div>
-
-                <div className="flex items-center group">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform">
-                    <Phone className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm sm:text-base">{currentContent.contactLabels.phone}</p>
-                    <p className="text-gray-600 text-sm sm:text-base">{currentContent.contactDetails.phone}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center group">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform">
-                    <Mail className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm sm:text-base">{currentContent.contactLabels.email}</p>
-                    <p className="text-gray-600 text-sm sm:text-base">{currentContent.contactDetails.email}</p>
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.phone}</h3>
+                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.phone}</p>
               </div>
+            </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center group">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform">
-                    <Instagram className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm sm:text-base">{currentContent.contactLabels.instagram}</p>
-                    <p className="text-gray-600 text-sm sm:text-base">{currentContent.contactDetails.instagram}</p>
-                  </div>
+            {/* Email */}
+            <div className="group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
+                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <Mail className="text-white" size={28} />
                 </div>
+                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.email}</h3>
+                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.email}</p>
+              </div>
+            </div>
 
-                <div className="flex items-center group">
-                  <div className="bg-gradient-to-r from-orange-500 to-green-500 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform">
-                    <Clock className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-sm sm:text-base">{currentContent.contactLabels.timings}</p>
-                    <p className="text-gray-600 text-sm sm:text-base">{currentContent.contactDetails.timings}</p>
+            {/* Instagram */}
+            <div className="group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
+                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <Instagram className="text-white" size={28} />
+                </div>
+                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.instagram}</h3>
+                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.instagram}</p>
+              </div>
+            </div>
+
+            {/* Timings */}
+            <div className="group md:col-span-2 lg:col-span-1">
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
+                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <Clock className="text-white" size={28} />
+                </div>
+                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.timings}</h3>
+                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.timings}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Map Section */}
+          <div className="mt-16 text-center">
+            <div className="group relative inline-block">
+              <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl"></div>
+              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20">
+                <p className="text-lg text-gray-300 mb-6">Visit us at our iconic location in the heart of Solapur's heritage district</p>
+                <div className="p-1 rounded-2xl inline-block" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                  <div className="bg-slate-900 rounded-xl p-4">
+                    <p className="text-white font-semibold">📍 Chatti Galli, Mangalwar Peth, Solapur</p>
+                    <p className="text-gray-300 text-sm mt-2">Near the famous Gadda Yatra route</p>
                   </div>
                 </div>
               </div>
@@ -345,6 +527,56 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-4">
+              {currentContent.brandName}
+            </h3>
+            <p className="text-gray-400 mb-6">{currentContent.tagline}</p>
+            
+            <div className="flex justify-center space-x-6 mb-8">
+              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                <Phone className="text-white" size={20} />
+              </div>
+              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                <Mail className="text-white" size={20} />
+              </div>
+              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                <Instagram className="text-white" size={20} />
+              </div>
+            </div>
+            
+            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto mb-8 rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
+            
+            <div className="grid md:grid-cols-3 gap-8 text-sm text-gray-400">
+              <div>
+                <h4 className="font-semibold text-white mb-2">Heritage</h4>
+                <p>Serving since 1942</p>
+                <p>4th Generation Legacy</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">Quality</h4>
+                <p>100% Fresh Juice</p>
+                <p>No Preservatives</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-2">Location</h4>
+                <p>Mangalwar Peth</p>
+                <p>Solapur, Maharashtra</p>
+              </div>
+            </div>
+            
+            <div className="mt-8 pt-8 border-t border-slate-800">
+              <p className="text-gray-500 text-sm">
+                © 2025 Dhumal Raspan Gruh. All rights reserved. | A legacy of tradition, taste, and trust.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
