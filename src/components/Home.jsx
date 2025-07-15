@@ -168,10 +168,9 @@ const Home = () => {
 
       {/* Hero Section */}
     <section 
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
+        className="relative min-h-[110vh] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
         style={{
-            backgroundImage: `linear-gradient(rgba(5, 93, 57, 0.7), rgba(16, 185, 129, 0.4)), url('https://cdn.pixabay.com/photo/2020/07/09/20/05/sugarcane-5388628_1280.jpg')`,
-            transform: `translateY(${scrollY * 0.3}px)`
+            backgroundImage: `linear-gradient(rgba(5, 93, 57, 0.7), rgba(16, 185, 129, 0.4)), url('https://cdn.pixabay.com/photo/2020/07/09/20/05/sugarcane-5388628_1280.jpg')`
         }}
         >
         {/* Enhanced Animated Background */}
@@ -182,8 +181,7 @@ const Home = () => {
                     linear-gradient(rgba(52, 211, 153, 0.1) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(52, 211, 153, 0.1) 1px, transparent 1px)
                 `,
-                backgroundSize: '50px 50px',
-                transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.1}px)`
+                backgroundSize: '50px 50px'
                 }}></div>
         </div>
 
@@ -214,7 +212,7 @@ const Home = () => {
 
         {/* Enhanced Hero Content */}
         <div 
-            className="relative z-10 text-center px-4 sm:px-6 max-w-7xl mx-auto"
+            className="relative z-10 text-center px-4 sm:px-6 max-w-7xl mx-auto mt-16"
             style={{ transform: `translateY(${scrollY * 0.05}px)` }}
         >
             <div className="mb-6 sm:mb-8">
@@ -248,7 +246,7 @@ const Home = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 rounded-3xl blur-xl opacity-30 group-hover:opacity-70 transition-all duration-700"></div>
             
             {/* Enhanced Main Card */}
-            <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 md:p-12 border border-white/30 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
+            <div className="relative bg-white/70 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 md:p-12 border border-white/30 shadow-2xl transform transition-all duration-500 hover:scale-[1.02]">
                 {/* Decorative Quote Mark */}
                 <div className="text-5xl sm:text-6xl text-emerald-400 font-bold mb-4 opacity-20 leading-none">"</div>
                 
@@ -519,7 +517,6 @@ const Home = () => {
                 <div className="p-1 rounded-2xl inline-block" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
                   <div className="bg-slate-900 rounded-xl p-4">
                     <p className="text-white font-semibold">📍 Chatti Galli, Mangalwar Peth, Solapur</p>
-                    <p className="text-gray-300 text-sm mt-2">Near the famous Gadda Yatra route</p>
                   </div>
                 </div>
               </div>
@@ -571,7 +568,7 @@ const Home = () => {
             
             <div className="mt-8 pt-8 border-t border-slate-800">
               <p className="text-gray-500 text-sm">
-                © 2025 Dhumal Raspan Gruh. All rights reserved. | A legacy of tradition, taste, and trust.
+                © 2025 All rights reserved. | Designed by <b>Oskar Technologies</b>
               </p>
             </div>
           </div>
