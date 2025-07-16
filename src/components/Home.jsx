@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Phone, Mail, Instagram, Clock, MapPin, CheckCircle, Globe, Zap, Shield, Sparkles, Heart, Droplets, Leaf } from 'lucide-react';
+import {LanguageContext} from '../context/LanguageContext.js'
 
 const Home = () => {
-  const [language, setLanguage] = useState('en');
+  const {language} = useContext(LanguageContext)
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -65,7 +66,6 @@ const Home = () => {
         }
       ],
       benefitsFooter: "Come for the taste. Stay for the benefits.",
-      contactTitle: "Get In Touch",
       contactLabels: {
         address: "Address",
         phone: "Phone",
@@ -134,7 +134,6 @@ const Home = () => {
         }
       ],
       benefitsFooter: "चवीसाठी या. फायद्यांसाठी राहा.",
-      contactTitle: "संपर्क करा",
       contactLabels: {
         address: "पत्ता",
         phone: "फोन",
@@ -156,18 +155,9 @@ const Home = () => {
 
   return (
 <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 overflow-x-hidden">
-      {/* Language Toggle */}
-      <div className="fixed top-6 right-6 z-50">
-        <button
-          onClick={() => setLanguage(language === 'en' ? 'mr' : 'en')}
-          className="group bg-white/90 backdrop-blur-md hover:bg-white shadow-xl rounded-full p-4 transition-all duration-300 hover:scale-110 border border-green-200 hover:border-green-300"
-        >
-          <Globe className="text-green-600 group-hover:text-green-700 transition-colors" size={24} />
-        </button>
-      </div>
 
       {/* Hero Section */}
-    <section 
+    <section id='hero'
         className="relative min-h-[110vh] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
         style={{
             backgroundImage: `linear-gradient(rgba(5, 93, 57, 0.7), rgba(16, 185, 129, 0.4)), url('https://cdn.pixabay.com/photo/2020/07/09/20/05/sugarcane-5388628_1280.jpg')`
@@ -282,7 +272,7 @@ const Home = () => {
     </section>
 
       {/* About Section */}
-      <section className="py-20 px-6 relative">
+      <section id='about' className="py-20 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-green-900 mb-6" style={{ color: '#055d39' }}>
@@ -325,59 +315,87 @@ const Home = () => {
       </section>
 
       {/* Legacy Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+      <section id='legacy' className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-20 sm:opacity-30"
           style={{
             backgroundImage: `url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23055d39' fill-opacity='0.1'><circle cx='30' cy='30' r='1'/></g></g></svg>")`
           }}
         ></div>
         
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight">
               {currentContent.legacyTitle}
             </h2>
-            <p className="text-xl md:text-2xl text-gray-300 mb-6">{currentContent.legacySubtitle}</p>
-            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto mb-8 rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
-            <p className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-4 sm:mb-6 px-4 sm:px-8 lg:px-0">
+              {currentContent.legacySubtitle}
+            </p>
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto mb-6 sm:mb-8 rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
+            <p className="text-base sm:text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed px-4 sm:px-6 lg:px-0">
               {currentContent.legacyIntro}
             </p>
           </div>
 
           {/* Timeline */}
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
+            {/* Desktop Timeline Line */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
             
-            <div className="space-y-16">
+            {/* Mobile Timeline Line */}
+            <div className="md:hidden absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
+            
+            <div className="space-y-8 sm:space-y-12 lg:space-y-16">
               {Object.entries(currentContent.timeline).map(([year, description], index) => (
-                <div key={year} className="flex items-center">
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-3'}`}>
-                    <div className="group">
-                      <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                      <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl">
-                        <h3 className="text-2xl font-bold text-green-400 mb-4" style={{ color: '#34d399' }}>{year}</h3>
-                        <p className="text-gray-300 leading-relaxed">{description}</p>
+                <div key={year} className="relative">
+                  {/* Desktop Layout */}
+                  <div className="hidden md:flex items-center">
+                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-3'}`}>
+                      <div className="group">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative bg-white/10 backdrop-blur-lg p-6 lg:p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl">
+                          <h3 className="text-xl lg:text-2xl font-bold text-green-400 mb-3 lg:mb-4" style={{ color: '#34d399' }}>{year}</h3>
+                          <p className="text-gray-300 leading-relaxed text-sm lg:text-base">{description}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="relative w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-full border-4 border-slate-800 shadow-2xl z-10 flex-shrink-0 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                      <div className="w-3 h-3 lg:w-4 lg:h-4 bg-white rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pl-8 order-3' : 'pr-8 text-right'}`}></div>
+                  </div>
+
+                  {/* Mobile Layout */}
+                  <div className="md:hidden flex items-start">
+                    <div className="relative w-8 h-8 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-full border-4 border-slate-800 shadow-2xl z-10 flex-shrink-0 flex items-center justify-center mt-2" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <div className="ml-6 flex-1">
+                      <div className="group">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative bg-white/10 backdrop-blur-lg p-4 sm:p-6 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl">
+                          <h3 className="text-lg sm:text-xl font-bold text-green-400 mb-2 sm:mb-3" style={{ color: '#34d399' }}>{year}</h3>
+                          <p className="text-gray-300 leading-relaxed text-sm sm:text-base">{description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="relative w-12 h-12 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-full border-4 border-slate-800 shadow-2xl z-10 flex-shrink-0 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                    <div className="w-4 h-4 bg-white rounded-full animate-pulse"></div>
-                  </div>
-                  
-                  <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pl-8 order-3' : 'pr-8 text-right'}`}></div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="text-center mt-16">
-            <div className="relative inline-block">
+          {/* Footer Quote */}
+          <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+            <div className="relative inline-block max-w-4xl mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20">
-                <p className="text-lg text-gray-300 italic font-medium">
+              <div className="relative bg-white/10 backdrop-blur-lg p-6 sm:p-8 lg:p-10 rounded-2xl border border-white/20 mx-4 sm:mx-6 lg:mx-0">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-300 italic font-medium leading-relaxed">
                   {currentContent.legacyFooter}
                 </p>
               </div>
@@ -387,7 +405,7 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-6 relative">
+      <section id='benefits' className="py-20 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-green-900 mb-6" style={{ color: '#055d39' }}>
@@ -433,100 +451,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23055d39%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-6">
-              {currentContent.contactTitle}
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 mx-auto rounded-full" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Address */}
-            <div className="group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
-                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <MapPin className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.address}</h3>
-                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.address}</p>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
-                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <Phone className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.phone}</h3>
-                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.phone}</p>
-              </div>
-            </div>
-
-            {/* Email */}
-            <div className="group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
-                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <Mail className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.email}</h3>
-                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.email}</p>
-              </div>
-            </div>
-
-            {/* Instagram */}
-            <div className="group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
-                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <Instagram className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.instagram}</h3>
-                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.instagram}</p>
-              </div>
-            </div>
-
-            {/* Timings */}
-            <div className="group md:col-span-2 lg:col-span-1">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl text-center">
-                <div className="p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <Clock className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-semibold text-green-400 mb-4" style={{ color: '#34d399' }}>{currentContent.contactLabels.timings}</h3>
-                <p className="text-gray-300 leading-relaxed">{currentContent.contactDetails.timings}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Map Section */}
-          <div className="mt-16 text-center">
-            <div className="group relative inline-block">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl"></div>
-              <div className="relative bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20">
-                <p className="text-lg text-gray-300 mb-6">Visit us at our iconic location in the heart of Solapur's heritage district</p>
-                <div className="p-1 rounded-2xl inline-block" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
-                  <div className="bg-slate-900 rounded-xl p-4">
-                    <p className="text-white font-semibold">📍 Chatti Galli, Mangalwar Peth, Solapur</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-slate-950 text-white py-12 border-t border-slate-800">
+      <footer id='contact' className="bg-slate-950 text-white py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent mb-4">
@@ -535,14 +461,30 @@ const Home = () => {
             <p className="text-gray-400 mb-6">{currentContent.tagline}</p>
             
             <div className="flex justify-center space-x-6 mb-8">
-              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+              <a href="tel:+91-9158433382" className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
                 <Phone className="text-white" size={20} />
-              </div>
-              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+              </a>
+              <a href="mailto:dhumalraspan@gmail.com" className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
                 <Mail className="text-white" size={20} />
-              </div>
-              <div className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
+              </a>
+              <a href="https://instagram.com/dhumal_raspan_gruh" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full hover:scale-110 transition-transform cursor-pointer" style={{ background: `linear-gradient(to right, #055d39, #047857, #0f766e)` }}>
                 <Instagram className="text-white" size={20} />
+              </a>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-400 mb-8">
+              <div className="text-center">
+                <h4 className="font-semibold text-white mb-2">📍 Visit Us</h4>
+                <p>Dhumal Raspan Gruh</p>
+                <p>Chatti Galli, Mangalwar Peth, Solapur</p>
+                <p className="mt-2">📞 +91-9158433382</p>
+                <p>📧 dhumalraspan@gmail.com</p>
+              </div>
+              <div className="text-center">
+                <h4 className="font-semibold text-white mb-2">🕐 Timings</h4>
+                <p>10 AM – 10 PM</p>
+                <p>All Days</p>
+                <p className="mt-2">📲 @dhumal_raspan_gruh</p>
               </div>
             </div>
             
@@ -560,9 +502,9 @@ const Home = () => {
                 <p>No Preservatives</p>
               </div>
               <div>
-                <h4 className="font-semibold text-white mb-2">Location</h4>
-                <p>Mangalwar Peth</p>
-                <p>Solapur, Maharashtra</p>
+                <h4 className="font-semibold text-white mb-2">Follow Us</h4>
+                <p>Instagram: @dhumal_raspan_gruh</p>
+                <p>Stay updated with our latest offers</p>
               </div>
             </div>
             

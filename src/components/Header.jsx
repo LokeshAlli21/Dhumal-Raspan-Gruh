@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Menu, X, Globe, Phone, Mail, Instagram, Clock, MapPin } from 'lucide-react';
+import { LanguageContext } from '../context/LanguageContext';
 
-const Header = ({ language = 'en', onLanguageChange }) => {
+const Header = () => {
+  const {language, setLanguage} = useContext(LanguageContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -135,7 +137,7 @@ const Header = ({ language = 'en', onLanguageChange }) => {
             <div className="flex items-center space-x-4">
               {/* Language Toggle */}
               <button
-                onClick={() => onLanguageChange && onLanguageChange(language === 'en' ? 'mr' : 'en')}
+                onClick={() => setLanguage && setLanguage(language === 'en' ? 'mr' : 'en')}
                 className={`group p-2 rounded-full transition-all duration-300 hover:scale-110 ${
                   scrolled 
                     ? 'bg-green-50 hover:bg-green-100 text-green-600' 
