@@ -345,13 +345,13 @@ const Home = () => {
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
             
             {/* Mobile Timeline Line */}
-            <div className="md:hidden absolute left-6 top-0 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
+            <div className="md:hidden absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500 rounded-full opacity-60" style={{ background: `linear-gradient(to bottom, #055d39, #047857, #0f766e)` }}></div>
             
             <div className="space-y-8 sm:space-y-12 lg:space-y-16">
               {Object.entries(currentContent.timeline).map(([year, description], index) => (
                 <div key={year} className="relative">
                   {/* Desktop Layout */}
-                  <div className="hidden md:flex items-center">
+                  <div className="hidden md:flex items-center justify-center">
                     <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 order-3'}`}>
                       <div className="group">
                         <div className="absolute -inset-2 bg-gradient-to-r from-green-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
