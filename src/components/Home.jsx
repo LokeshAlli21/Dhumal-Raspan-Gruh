@@ -28,7 +28,7 @@ const Home = () => {
       legacyIntro: "The story of Dhumal Raspan Gruh is more than just about serving sugarcane juice — it's a tale of service, sacrifice, and a family tradition carried forward across four proud generations.",
       timeline: {
         1942: "Our great-grandmother established a humble juice stall called Jai Hind Raspan Gruh to provide fresh, natural sugarcane juice to the people of Solapur. It quickly became an integral part of the city's culture, especially during the iconic Gadda Yatra.",
-        1982: "The torch was passed to our grandfather, who returned home after honourably serving in the Indian Army as a Naib Subedar. With pride and purpose, he continued the legacy and renamed it Jai Jawan Raspan Gruh, giving it a renewed identity grounded in discipline, trust, and family values.",
+        1982: <>The torch was passed to our grandfather, who returned home after honourably serving in the Indian Army as a Naib Subedar. With pride and purpose, he continued the legacy and renamed it <strong>"Jai Jawan Raspan Gruh"</strong>, giving it a renewed identity grounded in discipline, trust, and family values.</>,
         1992: "The third generation, Mr. Sunil Balkrishna Dhumal, took the legacy forward. With a vision to give the family name the recognition it deserved, he rebranded the business as Dhumal Raspan Gruh. Under his leadership, the juice centre gained a reputation for quality, hygiene, and heartfelt service.",
         2025: "I — Amol Sunil Dhumal — step forward as the fourth generation to carry this treasured legacy. On 14th July 2025, we marked a new milestone by officially rebranding Dhumal Raspan Gruh as a contemporary heritage brand, while remaining committed to the values that have shaped us since 1942."
       },
@@ -96,7 +96,7 @@ const Home = () => {
       legacyIntro: "धुमाळ रसपान गृहाची कथा केवळ ऊसरस सर्व्ह करण्याबद्दल नाही — ही सेवा, त्याग आणि चार अभिमानास्पद पिढ्यांमध्ये वाहून नेलेल्या कौटुंबिक परंपरेची गाथा आहे.",
       timeline: {
         1942: "आमच्या पणजींनी सोलापूरच्या लोकांना ताजे, नैसर्गिक ऊसरस देण्यासाठी जय हिंद रसपान गृह नावाचे नम्र रसाचे स्टॉल स्थापन केले. विशेषतः प्रसिद्ध गड्डा यात्रेदरम्यान हे शहराच्या संस्कृतीचा अविभाज्य भाग बनले.",
-        1982: "भारतीय सैन्यात नायब सुभेदार म्हणून सन्मानाने सेवा केल्यानंतर घरी परतलेल्या आमच्या आजोबांना ही मशाल देण्यात आली. अभिमानाने आणि हेतूने, त्यांनी हा वारसा पुढे चालू ठेवला आणि त्याचे नाव जय जवान रसपन गृह ठेवले, ज्यामुळे शिस्त, विश्वास आणि कौटुंबिक मूल्यांवर आधारित एक नवीन ओळख निर्माण झाली.",
+        1982: <>भारतीय सैन्यात नायब सुभेदार म्हणून सन्मानाने सेवा केल्यानंतर घरी परतलेल्या आमच्या आजोबांना ही मशाल देण्यात आली. अभिमानाने आणि हेतूने, त्यांनी हा वारसा पुढे चालू ठेवला आणि त्याचे नाव <strong> " जय जवान रसपन गृह "</strong> ठेवले, ज्यामुळे शिस्त, विश्वास आणि कौटुंबिक मूल्यांवर आधारित एक नवीन ओळख निर्माण झाली.</>,
         1992: "तिसऱ्या पिढीतील श्री. सुनील बाळकृष्ण धुमाळ यांनी हा वारसा पुढे नेला. कुटुंबाच्या नावाला योग्य ती ओळख मिळवून देण्याच्या दृष्टिकोनातून त्यांनी व्यवसायाचे नाव धुमाळ रसपान गृह असे ठेवले. त्यांच्या नेतृत्वाखाली, ज्यूस सेंटरने गुणवत्ता, स्वच्छता आणि प्रामाणिक सेवेसाठी प्रतिष्ठा मिळवली.",
         2025: "मी — अमोल सुनील धुमाळ — या बहुमोल वारशाला पुढे नेण्यासाठी चौथी पिढी म्हणून पुढे येत आहे. १४ जुलै २०२५ रोजी, आम्ही धुमाळ रसपान गृहाला समकालीन वारसा ब्रँड म्हणून अधिकृतपणे रिब्रँड करून नवीन मैलाचा दगड गाठला, १९४२ पासून आम्हाला आकार देणाऱ्या मूल्यांप्रती वचनबद्ध राहिलो."
       },
