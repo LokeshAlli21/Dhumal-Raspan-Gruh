@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Phone, Mail, Instagram, Clock, MapPin, CheckCircle, Globe, Zap, Shield, Sparkles, Heart, Droplets, Leaf } from 'lucide-react';
 import {LanguageContext} from '../context/LanguageContext.js'
+import ScrollToTopButton from '../components/ScrollToTopButton.jsx'
 
 const Home = () => {
   const {language} = useContext(LanguageContext)
@@ -451,6 +452,7 @@ const Home = () => {
         </div>
       </section>
 
+      <ScrollToTopButton />
       {/* Footer */}
       <footer id='contact' className="bg-slate-950 text-white py-12 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-6">
