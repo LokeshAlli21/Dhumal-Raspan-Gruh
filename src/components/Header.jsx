@@ -33,7 +33,7 @@ const Header = () => {
         contact: "Contact"
       },
       contactInfo: {
-        phone: "+91-9158433382",
+        phone: "+91-9158433380",
         email: "dhumalraspan@gmail.com",
         address: "Chatti Galli, Mangalwar Peth, Solapur",
         timings: "10 AM – 10 PM"
@@ -50,7 +50,7 @@ const Header = () => {
         contact: "संपर्क"
       },
       contactInfo: {
-        phone: "+91-9158433382",
+        phone: "+91-9158433380",
         email: "dhumalraspan@gmail.com",
         address: "छत्ती गल्ली, मंगलवार पेठ, सोलापूर",
         timings: "सकाळ १० ते रात्री १०"
