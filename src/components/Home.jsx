@@ -216,7 +216,7 @@ const Home = () => {
             </div>
 
             {/* Enhanced Brand Name */}
-            <h1 className="text-4xl sm:text-5xl leading-normal md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-emerald-200 via-green-100 to-teal-200 bg-clip-text text-transparent leading-tight mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl leading-normal md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-emerald-200 via-green-100 to-teal-200 bg-clip-text text-transparent mb-4 sm:mb-6">
                 {currentContent.brandName}
             </h1>
 
